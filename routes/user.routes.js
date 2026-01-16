@@ -15,7 +15,7 @@ const protect = require("../middlewares/auth.middleware");
 
 const router = express.Router();
 
-router.post("/", validateCreateUser, protect, asyncHandler(createUser));
+router.post("/", validateCreateUser, asyncHandler(createUser));
 router.get("/", protect, asyncHandler(getUsers));
 router.get("/:id", protect, asyncHandler(getUser));
 router.put("/:id", protect, validateUpdateUser, asyncHandler(updateUser));

@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/dbConfig");
 const userRoutes = require("./routes/user.routes");
-const authRoutes = require("./routes/auth.routes")
+const authRoutes = require("./routes/auth.routes");
 const { errorHandler } = require("./middlewares/error.handler");
 
 dotenv.config();
@@ -16,7 +16,7 @@ const app = express();
 
 app.use(helmet());
 app.use(morgan("dev"));
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || true }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
